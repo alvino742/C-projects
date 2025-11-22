@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+#include "main.h"
+
+
+//todo now  
+
+
+int main(int argc, char **argv) {
+	char *path = "task.bin";
+	char *command = argv[1];
+
+	if (strcmp(command, "add") == 0){
+			char *task_name = argv[2];
+			if (!add_list(path, task_name)){
+					printf("error adding\n");
+					return 1;
+			}
+			printf("Task added succeessfully\n");
+	}
+	
+	else if (strcmp(command, "list") == 0) {
+		if (!print_list(path)){
+			printf("No task created yet.\n");
+			return 1;
+		}
+	}
+
+
+	return 0;
+}
