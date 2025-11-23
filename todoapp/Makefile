@@ -6,8 +6,8 @@ TARGET=epsilon
 SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = include
-_DEPS = main.h add.h struct.h print_list.h 
-_OBJS = main.o add.o print_list.o
+_DEPS = main.h add.h struct.h print_list.h get_list.h done_task.h
+_OBJS = main.o add.o print_list.o get_list.o done_task.o
 DEPS = $(patsubst %,$(INC_DIR)/%,$(_DEPS))
 OBJS = $(patsubst %,$(OBJ_DIR)/%,$(_OBJS))
 

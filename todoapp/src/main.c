@@ -26,6 +26,34 @@ int main(int argc, char **argv) {
 		}
 	}
 
+	else if (strcmp(command, "done") == 0) {
+		char *endptr;
+		int task_num = strtol(argv[2], &endptr, 10);
+		if (endptr == argv[2]) {
+			printf("No conversion performed\n");
+			return 1;
+		}
+		if (!done_task(path, task_num)){
+			printf("Error marking task done\n");
+			return 1;
+		}
+		printf("Task marked as done! Good job beta.\n");
+	}
+
+	else if (strcmp(command, "undone") == 0){
+		;
+	}
+
+	else if (strcmp(command, "remove") == 0) {
+		char *endptr;
+		int task_num = strtol(argv[2], &endptr, 10);
+		if (endptr == argv[2]) {
+			printf("No conversion performed\n");
+			return 1;
+		}
+		
+	}
+
 
 	return 0;
 }
