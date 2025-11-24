@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 			printf("No conversion performed\n");
 			return 1;
 		}
-		if (!done_task(path, task_num)){
+		if (!set_task_done(path, task_num, 1)){
 			printf("Error marking task done\n");
 			return 1;
 		}
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 			printf("No conversion performed\n");
 			return 1;
 		}
-		if (!remove_task(path, task_num)){
+		if (!remove_task(path, task_num, 0)){
 			printf("Error removing task\n");
 			return 1;
 		}
