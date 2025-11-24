@@ -8,15 +8,17 @@ int print_list(char * path){
 	if (!task_list) {
 		return 0;
 	}
-	printf(" === Tasks pending: ===\n");
+	printf("\n === Tasks pending: ===\n");
+	int task_pending = 0;
 	for (int i = 0; i < list_len; i++){
 		if (task_list[i].done == 0) {
-			printf("%d |  ", i+1);
+			task_pending += 1;
+			printf("%d |  ", task_pending);
 			printf("%s\n", task_list[i].name);
 		}
 	}
 
-	printf(" === Tasks done: === \n");
+	printf("\n === Tasks done: === \n");
 	int task_done = 0;
 	for (int j = 0; j < list_len; j++) {
 		if (task_list[j].done == 1){
@@ -29,5 +31,6 @@ int print_list(char * path){
 		printf("You stupid beta have not finished any tasks GET WORKING NOW\n");
 	}
 	free(task_list);
+	printf("\n");
 	return 1;
 }

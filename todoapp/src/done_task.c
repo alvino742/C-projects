@@ -27,6 +27,12 @@ int done_task(char * path, int task_num){
 
 	block.done = 1;
 
+	if (fseek(fp, (task_num-1) * sizeof(Task), SEEK_SET) == 1){
+		printf("Error fseek\n");
+		fclose(fp);
+		return 0;
+	}
+
 	if (!fwrite(&block, sizeof(Task), 1, fp)) {
 		printf("Error fwrite\n");
 		fclose(fp);

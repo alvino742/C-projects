@@ -6,6 +6,8 @@
 #include "add.h"
 #include "print_list.h"
 #include "done_task.h"
+#include "clear.h"
+#include "remove.h"
 
 
 #endif

@@ -47,11 +47,25 @@ int main(int argc, char **argv) {
 	else if (strcmp(command, "remove") == 0) {
 		char *endptr;
 		int task_num = strtol(argv[2], &endptr, 10);
-		if (endptr == argv[2]) {
+		if (endptr == argv[2]){
 			printf("No conversion performed\n");
 			return 1;
 		}
-		
+		if (!remove_task(path, task_num)){
+			printf("Error removing task\n");
+			return 1;
+		}
+		printf("Task removed!\n");
+	}
+	
+	else if(strcmp(command, "clear") == 0) {
+		if (strcmp(argv[2], "all") == 0) {
+			if (!clear_all(path)) {
+				printf("Error clearing file\n");
+				return 1;
+			}
+			printf("Tasks cleared successfully\n");
+		}
 	}
 
 
