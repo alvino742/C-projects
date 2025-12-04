@@ -7,5 +7,7 @@
 
 int clear_all(char *path);
 
+int clear_done(char *path);
+
 #endif
 

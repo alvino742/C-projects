@@ -41,7 +41,17 @@ int main(int argc, char **argv) {
 	}
 
 	else if (strcmp(command, "undone") == 0){
-		;
+		char *endptr;
+		int task_num = strtol(argv[2], &endptr, 10);
+		if (endptr == argv[2]) {
+			printf("No conversion performed\n");
+			return 1;
+		}
+		if (!set_task_done(path, task_num, 0)){
+			printf("Error undoning task\n");
+			return 1;
+		}
+		printf("Task marked undone! Get back to work!\n");
 	}
 
 	else if (strcmp(command, "remove") == 0) {
@@ -65,6 +75,14 @@ int main(int argc, char **argv) {
 				return 1;
 			}
 			printf("Tasks cleared successfully\n");
+		}
+
+		if (strcmp(argv[2], "done") == 0) {
+			if (!clear_done(path)) {
+				printf("Error clearing done\n");
+				return 1;
+			}
+			printf("Done tasks cleared successfully\n");
 		}
 	}
 
